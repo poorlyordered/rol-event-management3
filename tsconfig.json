@@ -1,3 +1,4 @@
+// tsconfig.json
 {
 	"extends": "./.svelte-kit/tsconfig.json",
 	"compilerOptions": {
@@ -11,5 +12,7 @@
 		"strict": true,
 		"module": "NodeNext",
 		"moduleResolution": "NodeNext"
-	}
+	},
+	// Moved "include" outside of "compilerOptions"
+	"include": ["src/**/*"]
 }

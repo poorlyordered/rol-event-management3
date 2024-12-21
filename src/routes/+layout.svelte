@@ -1,25 +1,23 @@
-<script lang="ts">
+<script>
+  import '../app.css';
   import { invalidate } from '$app/navigation'
   import { onMount } from 'svelte'
-  import type { LayoutData } from './$types'
 
-  export let data: LayoutData
-
-  let { supabase, session } = data
-  $: ({ supabase, session } = data)
+  let { data, children } = $props()
+  let { session, supabase } = $derived(data)
 
   onMount(() => {
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, _session) => {
-      if (_session?.expires_at !== session?.expires_at) {
+    const { data } = supabase.auth.onAuthStateChange((_, newSession) => {
+      if (newSession?.expires_at !== session?.expires_at) {
         invalidate('supabase:auth')
       }
     })
 
-    return () => subscription.unsubscribe()
+    return () => data.subscription.unsubscribe()
   })
 </script>
+
+{@render children()}
 
 <svelte:head>
   <title>ROL Event Management</title>
@@ -66,12 +64,6 @@
   </nav>
 
   <main class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-    <slot />
+    {@render children()}
   </main>
 </div>
-
-<style>
-  .nav-link {
-    @apply inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:text-gray-900;
-  }
-</style>

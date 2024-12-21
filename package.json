@@ -34,11 +34,12 @@
 	"dependencies": {
 		"@supabase/auth-helpers-sveltekit": "^0.13.0",
 		"@supabase/ssr": "^0.5.2",
-		"@supabase/supabase-js": "^2.47.10"
+		"@supabase/supabase-js": "^2.47.10",
+		"cookie": "^1.0.2"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
-		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/kit": "^2.13.0",
 		"@sveltejs/package": "^2.0.0",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"@tailwindcss/forms": "^0.5.9",
