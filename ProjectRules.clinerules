@@ -1,0 +1,35 @@
+1. TypeScript Configuration
+- Maintain strict TypeScript configuration
+- Use proper type definitions for all Supabase operations
+- No use of `any` type unless absolutely necessary and documented why
+
+2. SvelteKit Architecture
+- Follow SvelteKit's file-based routing conventions strictly
+- Use server-side endpoints (+server.ts) for API routes
+- Keep components atomic and reusable
+- Use layout files (+layout.svelte) for shared UI elements
+
+3. Supabase Integration
+- All database types should be generated using Supabase CLI
+- Implement proper error handling for all database operations
+- Use Row Level Security (RLS) policies for data access control
+- Keep database queries in separate service files
+
+4. Styling Guidelines
+- Use Tailwind's component classes for repeated patterns
+- Follow mobile-first responsive design approach
+- Maintain consistent spacing using Tailwind's spacing scale
+- Create utility classes for common style patterns
+
+5. Code Organization
+- Maximum file size of 300 lines
+- Document all complex functions with JSDoc comments
+- Use named exports instead of default exports
+- Keep component props interface definitions in separate files
+
+6. Performance
+- Implement proper loading states for async operations
+- Use SvelteKit's built-in image optimization
+- Lazy load components and routes where appropriate
+- Implement proper caching strategies for Supabase queries
+
