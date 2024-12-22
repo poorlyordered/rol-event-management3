@@ -1,3 +1,18 @@
-<h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+  import Hero from '../components/sections/Hero.svelte';
+  import About from '../components/sections/About.svelte';
+  import News from '../components/sections/News.svelte';
+  import Contact from '../components/sections/Contact.svelte';
+</script>
+
+<svelte:head>
+  <title>MonoTeam Gaming | One Team, One Dream</title>
+  <meta name="description" content="Join MonoTeam Gaming for weekly and monthly ladders in RIOT games. Casual and competitive teams forming now for League of Legends, Teamfight Tactics, and Valorant." />
+</svelte:head>
+
+<div class="flex flex-col w-full">
+  <Hero />
+  <About />
+  <News />
+  <Contact />
+</div>
