@@ -59,7 +59,7 @@
   bind:this={sectionRef}
 >
   <div 
-    class="container mx-auto px-4 opacity-0 translate-y-4 transition-all duration-1000"
+    class="container mx-auto px-4 transition-all duration-1000 section-enter"
   >
     <div class="text-center mb-16">
       <h2 class="text-4xl font-bold text-white mb-4 font-raleway">News</h2>
@@ -77,5 +77,15 @@
   /* Use Raleway font for headings */
   :global(.font-raleway) {
     font-family: 'Raleway', sans-serif;
+  }
+
+  .section-enter {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Add scroll margin to account for fixed header */
+  section {
+    scroll-margin-top: 4rem;
   }
 </style>

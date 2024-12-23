@@ -1,4 +1,4 @@
-# MonoTeam Gaming Website
+# Ranking Of Legends Website
 
 A modern, responsive gaming community website built with SvelteKit and Tailwind CSS.
 
@@ -148,4 +148,4 @@ The site can be deployed to any platform that supports SvelteKit applications. C
 
 ## License
 
-All rights reserved. MonoTeam Gaming © 2024
+All rights reserved. Ranking Of Legends © 2024

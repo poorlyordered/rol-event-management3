@@ -6,8 +6,8 @@
 </script>
 
 <svelte:head>
-  <title>MonoTeam Gaming | One Team, One Dream</title>
-  <meta name="description" content="Join MonoTeam Gaming for weekly and monthly ladders in RIOT games. Casual and competitive teams forming now for League of Legends, Teamfight Tactics, and Valorant." />
+  <title>Ranking Of Legends | One Team, One Dream</title>
+  <meta name="description" content="Join Ranking Of Legends for weekly and monthly ladders in RIOT games. Casual and competitive teams forming now for League of Legends, Teamfight Tactics, and Valorant." />
 </svelte:head>
 
 <div class="flex flex-col w-full">

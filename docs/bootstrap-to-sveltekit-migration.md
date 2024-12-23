@@ -1,7 +1,7 @@
 # Bootstrap to SvelteKit Migration Plan
 
 ## Overview
-This document outlines the plan to migrate the MonoTeam Gaming website from a Bootstrap-based static site to a SvelteKit application using Tailwind CSS.
+This document outlines the plan to migrate the Ranking Of Legends website from a Bootstrap-based static site to a SvelteKit application using Tailwind CSS.
 
 ## Current Project Analysis
 
@@ -23,8 +23,8 @@ This document outlines the plan to migrate the MonoTeam Gaming website from a Bo
 ### 1. Project Setup and Configuration
 - [x] SvelteKit project initialized
 - [x] Tailwind CSS configured
-- [ ] Static asset directory organization
-- [ ] Required npm packages installation
+- [x] Static asset directory organization
+- [x] Required npm packages installation
 
 ### 2. Component Structure
 ```

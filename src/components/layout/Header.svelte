@@ -12,17 +12,17 @@
       <!-- Logo -->
       <div class="flex-shrink-0">
         <a href="/" class="flex items-center">
-          <img src="/assets/img/logo-nav.png" alt="MonoTeam Gaming yellow skull logo" class="h-8">
+          <img src="/assets/img/logo_black.svg" alt="Ranking Of Legends logo" class="h-8">
         </a>
       </div>
 
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-8">
         <a href="/#hero" class="nav-link">Home</a>
-        <a href="/#about" class="nav-link">News</a>
+        <a href="/#news" class="nav-link">News</a>
         <a href="/#contact" class="nav-link">Contact</a>
         <a 
-          href="https://www.challengermode.com/s/MonoteamGaming/ladders/652fbcdf-a16e-4e21-c31f-08da6fcfed9d"
+          href="https://www.challengermode.com/s/RankingofLegends"
           target="_blank"
           class="nav-link"
         >
@@ -80,7 +80,7 @@
             Home
           </a>
           <a 
-            href="/#about" 
+            href="/#news" 
             class="nav-link-mobile"
             on:click={() => isMenuOpen = false}
           >
@@ -94,7 +94,7 @@
             Contact
           </a>
           <a 
-            href="https://www.challengermode.com/s/MonoteamGaming/ladders/652fbcdf-a16e-4e21-c31f-08da6fcfed9d"
+            href="https://www.challengermode.com/s/RankingofLegends"
             target="_blank"
             class="nav-link-mobile"
             on:click={() => isMenuOpen = false}

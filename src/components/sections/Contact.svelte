@@ -33,7 +33,7 @@
   bind:this={sectionRef}
 >
   <div 
-    class="container mx-auto px-4 opacity-0 translate-y-4 transition-all duration-1000"
+    class="container mx-auto px-4 transition-all duration-1000 section-enter"
   >
     <div class="text-center mb-16">
       <h2 class="text-4xl font-bold text-white mb-4 font-raleway">Contact Us</h2>
@@ -48,7 +48,7 @@
           <a 
             href="mailto:websitecontact@monoteamgaming.com"
             class="text-4xl text-yellow-400 hover:text-yellow-300 transition-colors"
-            aria-label="Send email to MonoTeam Gaming"
+            aria-label="Send email to Ranking Of Legends"
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
@@ -84,5 +84,15 @@
   /* Use Raleway font for headings */
   :global(.font-raleway) {
     font-family: 'Raleway', sans-serif;
+  }
+
+  .section-enter {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Add scroll margin to account for fixed header */
+  section {
+    scroll-margin-top: 4rem;
   }
 </style>
