@@ -9,6 +9,8 @@ A modern, responsive gaming community website built with SvelteKit and Tailwind 
 - **Styling**: Tailwind CSS
 - **Build Tool**: Vite
 - **Package Manager**: npm
+- **Authentication**: Supabase
+- **Code Quality**: ESLint, Prettier, Husky
 
 ## Project Structure
 
@@ -20,49 +22,88 @@ src/
     ui/               # UI components (Cards, Buttons)
   routes/             # SvelteKit routes
   lib/                # Shared utilities and types
+    permissions/      # Role-based access control
+    stores/          # Svelte stores for state management
+    types/           # TypeScript types and enums
   static/            # Static assets (images, fonts)
 ```
 
-## Components
+## Authentication & Authorization
 
-### Layout Components
+The project uses a comprehensive role-based authentication system:
 
-- **Header.svelte**: Main navigation component with mobile responsiveness
-- **Footer.svelte**: Site footer with copyright information
+### Authentication Flow
 
-### Section Components
+- Secure server-side authentication using Supabase
+- JWT token validation
+- Protected routes with role-based access
+- Organization-specific access control
 
-- **Hero.svelte**: Landing page hero section with background image and CTA
-- **About.svelte**: Team information section
-- **News.svelte**: News grid using card components
-- **Contact.svelte**: Contact information and email link
+### Role System
 
-### UI Components
+```typescript
+enum StaffRole {
+	Owner = 'owner',
+	PlatformAdmin = 'platform_admin',
+	CustomerService = 'customer_service',
+	TournamentDirector = 'tournament_director',
+	TournamentCoordinator = 'tournament_coordinator',
+	LeagueDirector = 'league_director',
+	LeagueCoordinator = 'league_coordinator'
+}
+```
 
-- **NewsCard.svelte**: Card component for displaying news items
+### Protected Routes
 
-## Features
+- `/admin/*` - Owner and Platform Admin only
+- `/tournaments/*` - Tournament staff and above
+- `/leagues/*` - League staff and above
+- `/staff/*` - Owner and Platform Admin only
+- `/organizations/:id/*` - Organization-specific access
 
-- Responsive design for all screen sizes
-- Mobile-first navigation with hamburger menu
-- Smooth scrolling to sections
-- Intersection Observer animations
-- Image optimization
-- Accessible UI components
+### Usage Example
 
-## Styling
+```svelte
+<RoleGuard roles={[StaffRoleEnum.TournamentDirector]}>
+	<TournamentManagement />
+</RoleGuard>
+```
 
-The project uses Tailwind CSS with custom configuration:
+## Code Quality
 
-- Custom color palette
-- Responsive breakpoints
-- Typography system using Raleway and Open Sans fonts
-- Custom animations and transitions
+### ESLint
 
-### Tailwind Plugins
+- TypeScript-aware linting
+- Svelte-specific rules
+- Integration with Prettier
 
-- @tailwindcss/aspect-ratio: For image aspect ratios
-- @tailwindcss/forms: For form styling
+Run linting:
+
+```bash
+npm run lint        # Check code style
+npm run lint:fix    # Fix code style issues
+```
+
+### Prettier
+
+- Consistent code formatting
+- Svelte template formatting
+- Customized configuration
+
+Format code:
+
+```bash
+npm run format      # Format all files
+npm run format:check # Check formatting
+```
+
+### Pre-commit Hooks
+
+The project uses Husky and lint-staged to ensure code quality:
+
+- Automatically formats staged files before commit
+- Runs ESLint on staged files
+- Prevents badly formatted code from being committed
 
 ## Development
 
@@ -84,6 +125,15 @@ The project uses Tailwind CSS with custom configuration:
    ```
 4. Open http://localhost:5173 in your browser
 
+### Environment Variables
+
+Required environment variables:
+
+```env
+PUBLIC_SUPABASE_URL=your_supabase_url
+PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
 ### Build
 
 To create a production build:
@@ -97,22 +147,26 @@ The built files will be in the `build` directory.
 ### Development Guidelines
 
 1. **Component Structure**
+
    - Keep components focused and single-responsibility
    - Use TypeScript for type safety
    - Document component props and events
 
 2. **Styling**
+
    - Use Tailwind utility classes
    - Keep custom CSS minimal
    - Follow mobile-first approach
 
-3. **Assets**
-   - Place images in static/assets/img
-   - Optimize images before committing
-   - Use appropriate image formats (WebP where possible)
+3. **Code Quality**
+
+   - Follow ESLint rules
+   - Format code with Prettier
+   - Write type-safe code
+   - Use role-based access control where needed
 
 4. **Performance**
-   - Lazy load images where appropriate
+   - Lazy load components where appropriate
    - Use intersection observer for animations
    - Keep bundle size minimal
 
@@ -144,7 +198,8 @@ The site can be deployed to any platform that supports SvelteKit applications. C
 1. Create a feature branch
 2. Make your changes
 3. Test thoroughly
-4. Submit a pull request
+4. Ensure code passes linting and formatting checks
+5. Submit a pull request
 
 ## License
 
