@@ -1,23 +1,38 @@
-// src/app.d.ts
-// See https://svelte.dev/docs/kit/types#app.d.ts
-// for information about these interfaces
-import type { Session, SupabaseClient, User } from '@supabase/supabase-js'
+/// <reference types="@sveltejs/kit" />
+import type { SupabaseClient, User, Session } from '@supabase/supabase-js';
+import type { StaffRole } from '$lib/types/index.js';
 
 declare global {
-  namespace App {
-    // interface Error {}
-    interface Locals {
-      supabase: SupabaseClient
-      safeGetSession: () => Promise<{ session: Session | null; user: User | null }>
-      session: Session | null
-      user: User | null
+    namespace App {
+        interface Locals {
+            supabase: SupabaseClient
+            safeGetSession: () => Promise<{
+                session: Session | null
+                user: User | null
+            }>
+            session: Session | null
+            user: User | null
+            staffMember: {
+                id: string
+                user_id: string
+                role: StaffRole
+                organization_id: string | null
+                created_at: string | null
+                updated_at: string | null
+            } | null
+        }
+        // interface PageData {}
+        // interface Error {}
+        // interface Platform {}
     }
-    interface PageData {
-      session: Session | null
+
+    namespace NodeJS {
+        interface ProcessEnv {
+            PUBLIC_SUPABASE_URL: string
+            PUBLIC_SUPABASE_ANON_KEY: string
+        }
     }
-    // interface PageState {}
-    // interface Platform {}
-  }
 }
 
-export {}
+// Need this to make the file a module
+export {};
